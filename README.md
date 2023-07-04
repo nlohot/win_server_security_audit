@@ -1,2 +1,2 @@
 # win_server_security_audit
-This repo contains a chef cookbook that is consist of inspec rules that aims to scan windows server operating system against CIS benchmarked recommendations
+This repository contains a chef cookbook comprised of inspec rules aimed at scanning the Windows server operating system against CIS benchmarked recommendations.

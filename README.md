@@ -19,7 +19,7 @@ These settings are recommended by various industry standards like CIS, NIST and 
 
 * To use this cookbook, add the below chef recipe to your node's runlist:
 
-    recipe[win_server_security_audit::inspec_security_audit_profile]
+        recipe[win_server_security_audit::inspec_security_audit_profile]
 
 
 * This cookbook uses two chef reporters for collecting compliance results:

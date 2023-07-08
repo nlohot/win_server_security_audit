@@ -1,0 +1,36 @@
+---
+driver:
+  name: vagrant
+  boot_timeout: 1800
+
+## The forwarded_port port feature lets you connect to ports on the VM guest via
+## localhost on the host.
+## see also: https://www.vagrantup.com/docs/networking/forwarded_ports
+
+#  network:
+#    - ["forwarded_port", {guest: 80, host: 8080}]
+
+provisioner:
+  name: chef_zero
+
+
+verifier:
+  name: inspec
+
+transport:
+  connection_timeout: 1800
+
+platforms:
+  - name: windows2016
+    driver:
+      box: windows2016
+
+
+suites:
+  - name: default
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:
+    run_list:
+      - recipe[win_security_audit::inspec_security_audit_profile]

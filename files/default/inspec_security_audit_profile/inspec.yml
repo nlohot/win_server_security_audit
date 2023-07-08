@@ -1,0 +1,10 @@
+name: inspec_security_audit_profile
+title: Windows Sever Security audit inspec Profile
+maintainer: Nandkishor Lohot
+copyright: Nandkishor Lohot
+copyright_email: nand9lohot@gmail.com
+license: Apache-2.0
+summary: An InSpec Compliance Profile for Windows Server security policies as recommended by CIS
+version: 0.1.1
+supports:
+  platform: windows

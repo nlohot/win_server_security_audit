@@ -15,8 +15,8 @@ control '08.06' do
   tag 'profile': 'Member Server'
   tag 'level': '1'
 
-  describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System') do
-    its('PasswordExpiryWarning') { should eq 14 }
+  describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon') do
+    its('PasswordExpiryWarning') { should cmp 14 }
   end
 end
 

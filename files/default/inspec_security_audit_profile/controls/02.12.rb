@@ -15,8 +15,18 @@ control '02.12' do
   tag 'profile': 'Member Server'
   tag 'level': '1'
 
-  describe security_policy.SeCreateGlobalPriviledge do
-    it { is_expected.to include('S-1-5-32-544', 'S-1-5-19', 'S-1-5-20', 'S-1-5-6')}
+  seglobal = []
+  seglobaltemp = security_policy.SeCreateGlobalPriviledge
+  seglobal.push(seglobaltemp)
+
+  describe.one do
+    describe seglobal do
+      it { is_expected.to include('S-1-5-32-544', 'S-1-5-19', 'S-1-5-20', 'S-1-5-6')}
+    end
+
+    describe seglobaltemp do
+      it { is_expected.to include('S-1-5-32-544', 'S-1-5-19', 'S-1-5-20', 'S-1-5-6')}
+    end
   end
 end
 

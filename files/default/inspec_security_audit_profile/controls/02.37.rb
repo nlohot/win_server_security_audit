@@ -15,8 +15,14 @@ control '02.37' do
   tag 'profile': 'Member Server'
   tag 'level': '1'
 
-  describe security_policy.SeTakeOwnershipPrivilege do
-    it { is_expected.to include('S-1-5-19')}
+  describe.one do
+    describe security_policy.SeTakeOwnershipPrivilege do
+      it { is_expected.to include('S-1-5-32-544')}
+    end
+
+    describe security_policy.SeTakeOwnershipPrivilege do
+      it { is_expected.to include('Administrators')}
+    end
   end
 end
 

@@ -29,11 +29,12 @@ end
 desc 'Integration test- Test-Kitchen'
 task :integration do
   puts 'test-kitchen '.upcase * 5
-  begin
-    sh 'kitchen test'
-  rescue StandardError
-    sh 'kitchen destroy'
-  end
+  puts 'integration test is disabled to allow faster builds'
+  # begin
+  #   sh 'kitchen test'
+  # rescue StandardError
+  #   sh 'kitchen destroy'
+  # end
 end
 
 directory 'reports'

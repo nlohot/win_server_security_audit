@@ -17,7 +17,7 @@ control '02.07' do
 
   sebackup = []
   sebackuptemp = security_policy.SeBackupPriviledge
-  seremot.push(sebackuptemp)
+  sebackup.push(sebackuptemp)
 
   describe.one do
     describe sebackup do

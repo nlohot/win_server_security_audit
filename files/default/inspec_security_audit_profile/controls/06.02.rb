@@ -16,7 +16,7 @@ control '06.02' do
   tag 'level': '1'
 
   describe registry_key('HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Print\\Providers\\LanMan Print Services\\Servers') do
-    its('AddPrinterDrivers') { should eq 1 }
+    its('AddPrinterDrivers') { should cmp 1 }
   end
 end
 

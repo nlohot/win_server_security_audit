@@ -16,7 +16,7 @@ control '05.03' do
   tag 'level': '1'
 
   describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\EventLog\\Security') do
-    its('Retention') { should eq 0 }
+    its('Retention') { should cmp 0 }
   end
 end
 

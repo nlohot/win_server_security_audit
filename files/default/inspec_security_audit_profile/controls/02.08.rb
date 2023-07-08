@@ -15,8 +15,18 @@ control '02.08' do
   tag 'profile': 'Member Server'
   tag 'level': '1'
 
-  describe security_policy.SeSystemTimePriviledge do
-    it { is_expected.to include('S-1-5-32-544', 'S-1-5-19')}
+  sesystime = []
+  sesystimetemp = security_policy.SeSystemTimePriviledge
+  sesystime.push(sesystimetemp)
+
+  describe.one do
+    describe sesystime do
+      it { is_expected.to include('S-1-5-32-544', 'S-1-5-19')}
+    end
+
+    describe sesystimetemp do
+      it { is_expected.to include('S-1-5-32-544', 'S-1-5-19')}
+    end
   end
 end
 

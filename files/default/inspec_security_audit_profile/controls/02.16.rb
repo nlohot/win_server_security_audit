@@ -15,8 +15,14 @@ control '02.16' do
   tag 'profile': 'Member Server'
   tag 'level': '1'
 
-  describe security_policy.SeDenyNetworkLogonRight do
-    it { is_expected.to include('S-1-5-32-546')}
+  describe.one do
+    describe security_policy.SeDenyNetworkLogonRight do
+      it { is_expected.to include('S-1-5-32-546')}
+    end
+
+    describe security_policy.SeDenyNetworkLogonRight do
+      it { is_expected.to include('Guest')}
+    end
   end
 end
 

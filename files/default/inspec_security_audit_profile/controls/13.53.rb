@@ -15,7 +15,7 @@ control '13.53' do
   tag 'profile': 'Member Server'
   tag 'level': '1'
 
-  describe registry_key('HKEY_LOCAL_MACHINE\\OFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services') do
+  describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services') do
     its('fAllowToGetHelp') { should eq 0 }
   end
 end

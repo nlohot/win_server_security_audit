@@ -16,7 +16,7 @@ control '06.01' do
   tag 'level': '1'
 
   describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon') do
-    its('AllocateDASD') { should eq 0 }
+    its('AllocateDASD') { should cmp 0 }
   end
 end
 

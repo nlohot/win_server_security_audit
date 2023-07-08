@@ -15,8 +15,18 @@ control '02.24' do
   tag 'profile': 'Member Server'
   tag 'level': '1'
 
-  describe security_policy.SeImpersonatePriviledge do
-    it { is_expected.to include('S-1-5-32-544', 'S-1-5-19', 'S-1-5-20', 'S-1-5-6')}
+  seimpersonate = []
+  seimpersonatetemp = security_policy.SeImpersonatePriviledge
+  seimpersonate.push(seimpersonate)
+
+  describe.one do
+    describe seimpersonate do
+      it { is_expected.to include('S-1-5-32-544', 'S-1-5-19', 'S-1-5-20', 'S-1-5-6')}
+    end
+
+    describe seimpersonatetemp do
+      it { is_expected.to include('S-1-5-32-544', 'S-1-5-19', 'S-1-5-20', 'S-1-5-6')}
+    end
   end
 end
 

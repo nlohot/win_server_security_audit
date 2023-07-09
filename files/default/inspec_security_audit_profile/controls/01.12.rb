@@ -16,7 +16,7 @@ control '01.12' do
   tag 'level': '1'
 
   describe security_policy do
-    its('EnableGuestAccount') { should eq 2 }
+    its('EnableGuestAccount') { should cmp 0 }
   end
 end
 

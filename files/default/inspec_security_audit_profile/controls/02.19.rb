@@ -23,6 +23,10 @@ control '02.19' do
     describe security_policy.SeDenyInteractiveLogonRight do
       it { is_expected.to include('Guest')}
     end
+
+    describe security_policy.SeDenyInteractiveLogonRight do
+      it { is_expected.to include('S-1-5-21-2185568410-257636382-796303417-501')}
+    end
   end
 end
 

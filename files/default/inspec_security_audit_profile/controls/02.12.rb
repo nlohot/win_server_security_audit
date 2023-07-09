@@ -16,8 +16,14 @@ control '02.12' do
   tag 'level': '1'
 
   seglobal = []
-  seglobaltemp = security_policy.SeCreateGlobalPriviledge
+  seglobaltemp = security_policy.SeCreateGlobalPrivilege
   seglobal.push(seglobaltemp)
+
+  script = <<-URA
+    Import-Module C:\\temp\\UserRights.psm1
+    $rights = (Get-AccountsWithUserRight -Right SeCreateGlobalPrivilege).SID
+    $rights
+  URA
 
   describe.one do
     describe seglobal do
@@ -26,6 +32,13 @@ control '02.12' do
 
     describe seglobaltemp do
       it { is_expected.to include('S-1-5-32-544', 'S-1-5-19', 'S-1-5-20', 'S-1-5-6')}
+    end
+
+    describe powershell(script) do
+      its('stdout') { should include 'S-1-5-32-544' }
+      its('stdout') { should include 'S-1-5-19' }
+      its('stdout') { should include 'S-1-5-20' }
+      its('stdout') { should include 'S-1-5-6' }
     end
   end
 end

@@ -16,8 +16,14 @@ control '02.08' do
   tag 'level': '1'
 
   sesystime = []
-  sesystimetemp = security_policy.SeSystemTimePriviledge
+  sesystimetemp = security_policy.SeSystemtimePrivilege
   sesystime.push(sesystimetemp)
+
+  script = <<-URA
+    Import-Module C:\\temp\\UserRights.psm1
+    $rights = (Get-AccountsWithUserRight -Right SeSystemtimePrivilege).SID
+    $rights
+  URA
 
   describe.one do
     describe sesystime do
@@ -26,6 +32,11 @@ control '02.08' do
 
     describe sesystimetemp do
       it { is_expected.to include('S-1-5-32-544', 'S-1-5-19')}
+    end
+
+    describe powershell(script) do
+      its('stdout') { should include 'S-1-5-32-544' }
+      its('stdout') { should include 'S-1-5-19' }
     end
   end
 end

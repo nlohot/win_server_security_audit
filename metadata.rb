@@ -3,7 +3,7 @@ maintainer 'Nandkishor Lohot'
 maintainer_email 'nand9lohot@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures win_server_security_audit'
-version '0.1.1'
+version '0.1.3'
 # chef_version '>= 15.0'
 
 # The `issues_url` points to the location where issues for this cookbook are

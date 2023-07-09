@@ -16,7 +16,7 @@ control '02.24' do
   tag 'level': '1'
 
   seimpersonate = []
-  seimpersonatetemp = security_policy.SeImpersonatePriviledge
+  seimpersonatetemp = security_policy.SeImpersonatePrivilege
   seimpersonate.push(seimpersonate)
 
   describe.one do

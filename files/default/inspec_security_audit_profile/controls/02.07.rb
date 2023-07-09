@@ -16,7 +16,7 @@ control '02.07' do
   tag 'level': '1'
 
   sebackup = []
-  sebackuptemp = security_policy.SeBackupPriviledge
+  sebackuptemp = security_policy.SeBackupPrivilege
   sebackup.push(sebackuptemp)
 
   describe.one do

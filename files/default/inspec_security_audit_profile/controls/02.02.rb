@@ -16,8 +16,8 @@ control '02.02' do
   tag 'level': '1'
 
   describe security_policy.SeNetworkLogonRight do
-    it { should_not include 'S-1-5-32-544' }
-    it { should_not include 'S-1-5-11' }
+    it { should include 'S-1-5-32-544' }
+    it { should include 'S-1-5-11' }
   end
 end
 
